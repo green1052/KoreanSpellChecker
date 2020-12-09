@@ -24,12 +24,8 @@ def spell_check(text: str, is_weak: bool = True):
     arr = []
 
     for i in resArr[0]["errInfo"]:
-        tempDict = {"orgStr": i["orgStr"], "help": html.unescape(i["help"]).replace("<br/>", "\n")}
-
-        if len(str(i["candWord"]).split('|')) == 1:
-            tempDict["candWord"] = i["candWord"]
-        else:
-            tempDict["candWord"] = to_array(str(i["candWord"]).split('|'))
+        tempDict = {"orgStr": i["orgStr"], "help": html.unescape(i["help"]).replace("<br/>", "\n"),
+                    "candWord": to_array(str(i["candWord"]).split('|'))}
 
         arr.append(tempDict)
 
